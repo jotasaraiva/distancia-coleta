@@ -51,7 +51,7 @@ As demais fazendas apresentaram um intervalo de crescimento/decrescimento relati
 tabela_cresc
 ```
 
-Por fim, a tabela a seguir demonstra as distâncias médias das últimas coletas para cada fazenda. Com estas informações, a distância média de coleta para o projeto total é de `r dist_med_total` m.
+Por fim, a tabela a seguir demonstra as distâncias médias das últimas coletas para cada fazenda. Com estas informações, a distância média de coleta para o projeto total é de `r format_num(dist_med_total)` m.
 
 ```{r}
 tabela_distancia

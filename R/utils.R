@@ -30,6 +30,16 @@ make_beautiful_gt <- function(gt_table) {
     )
 }
 
+format_num <- function(numero) {
+  # Formatar o número com duas casas decimais
+  numero_formatado <- format(round(numero, 2), nsmall = 2, decimal.mark = ".", big.mark = ",")
+  
+  # Trocar ponto por vírgula
+  numero_formatado <- gsub("\\.", ",", numero_formatado)
+  
+  return(numero_formatado)
+}
+
 coletas_path <- here::here('data/tbg_amco_amostra_coletada_202501211400.csv')
 fazendas_path <- here::here('data/_select_taa_id_as_id_amostra_tff_fzda_md_poligono_as_fazenda_geo_202501211405.csv')
 
