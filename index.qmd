@@ -43,9 +43,9 @@ plot_relativo
 ```
 :::
 
-A tabela a seguir apresenta o crescimento ou decrescimento médio entre todas as amostras de fazenda, observado desde a primeira coleta até a ultima realizada, calculado com os outliers já retirados. Estes dados confirmam as informações anteriormente mencionadas que as fazendas Jitaí, Fidalgo e Folheiro obtiveram um incremento expressivo na distância de suas coletas.
+A tabela a seguir apresenta o crescimento (em verde) ou decrescimento (em vermelho) médio entre todas as amostras de fazenda, observado desde a primeira coleta até a ultima realizada, calculado com os outliers já retirados. Estes dados confirmam as informações anteriormente mencionadas que as fazendas Jitaí, Fidalgo e Folheiro obtiveram um incremento expressivo na distância de suas coletas.
 
-As demais fazendas apresentaram um intervalo de crescimento/decrescimento relativamente baixo, demonstrando constância nas distâncias necessárias para a transmissão dos dados.
+As demais fazendas apresentaram um intervalo de diferença relativamente baixo, demonstrando constância nas distâncias necessárias para a transmissão dos dados.
 
 ```{r}
 tabela_cresc
