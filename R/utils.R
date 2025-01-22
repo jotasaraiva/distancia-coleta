@@ -72,6 +72,7 @@ plot_relativo <-
 tabela <-
   data |>
   as_tibble() |>
+  filter(amco_nr_distancia < 600) |> 
   mutate(date = as.Date(amco_dt_data_coleta)) |>
   select(date, fazenda, amco_nr_distancia) |>
   summarise(dist_med = mean(amco_nr_distancia),
@@ -81,7 +82,7 @@ tabela <-
             dist_med_dif = last(dist_med) - first(dist_med)) |>
   arrange(dist_med_dif) |>
   gt() |>
-  cols_label(fazenda = 'Fazenda', dist_med_dif = 'Diferença Média de Distância') |>
+  cols_label(fazenda = 'Fazenda', dist_med_dif = 'Crescimento Médio de Distância') |>
   make_beautiful_gt() |>
   tab_style(
     style = cell_fill(color = "lightgreen"),

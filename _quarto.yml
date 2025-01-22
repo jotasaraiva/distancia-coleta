@@ -4,6 +4,7 @@ project:
   
 format: 
   html:
+    css: styles.css
     embed-resources: true
     smooth-scroll: true
     theme: cosmo
