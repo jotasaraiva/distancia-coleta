@@ -1,0 +1,11 @@
+.quarto-title-block .quarto-title-banner {
+  background-size: 250px;
+  background-position: left;
+  background-repeat: no-repeat;
+  padding-left: 10px;
+  background-origin: content-box;
+}
+
+p {
+  text-align: justify;
+}

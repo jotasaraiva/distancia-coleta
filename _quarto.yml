@@ -1,0 +1,14 @@
+project: 
+  type: default
+  output-dir: "docs/"
+  
+format: 
+  html:
+    embed-resources: true
+    smooth-scroll: true
+    theme: cosmo
+    fontcolor: black
+    toc: true
+    toc-location: left
+    toc-title: Sumário
+    toc-depth: 2

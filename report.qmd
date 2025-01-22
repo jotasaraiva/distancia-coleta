@@ -1,0 +1,51 @@
+---
+title: Análise de Distância de Coleta
+description: Análise de desempenho das distância de coletas dos IoTs no cliente Veracel
+date: last-modified
+author: João Saraiva
+institute: Treevia Forest Technologies
+title-block-banner: true
+title-block-banner-color: "#3D7A43"
+include-in-header: 
+  - text: |
+      <link rel = "shortcut icon" href = "favicon.ico" />
+execute: 
+  echo: false
+  warning: false
+lang: "pt-br"
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+rm(list = ls())
+
+library(tidyverse)
+library(sf)
+library(gt)
+
+source(here::here('R/utils.R'))
+```
+
+O presente relatório pretende analisar a distância das coletas dos sensores IoTs no projeto do cliente Veracel Celulose, de forma a aferir se a transmissão dos dados está ganhando, perdendo ou mantendo a distância ao longo do tempo. Os gráficos a seguir demonstram os dados e as tendências das distâncias de coleta para cada fazenda do projeto ao longo do tempo. 
+
+O gráfico absoluta apresenta as escalas individuais para cada fazenda, evidenciando que poucas fazendas tiveram um ganho substancial de distância, enquanto a maior teve um leve decrescimento. O gráfico relativo apresenta os mesmo resultados mas com a mesma escala para todas as fazendas, mostrando alguns *outliers* nas fazendas de Buri, Cinco Folhas, Fidalgo e Jitaí. 
+
+::: {.panel-tabset}
+## Escala Absoluta
+```{r}
+plot_absoluto
+```
+
+## Escala Relativa
+```{r}
+plot_relativo
+```
+:::
+
+
+
+```{r}
+tabela
+```
+
