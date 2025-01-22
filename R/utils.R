@@ -30,11 +30,8 @@ make_beautiful_gt <- function(gt_table) {
     )
 }
 
-
 coletas_path <- here::here('data/tbg_amco_amostra_coletada_202501211400.csv')
-fazendas_path <- here::here(
-  'data/_select_taa_id_as_id_amostra_tff_fzda_md_poligono_as_fazenda_geo_202501211405.csv'
-)
+fazendas_path <- here::here('data/_select_taa_id_as_id_amostra_tff_fzda_md_poligono_as_fazenda_geo_202501211405.csv')
 
 coletas_data <- read_csv(coletas_path)
 fazendas_data <- read_csv(fazendas_path)
@@ -69,7 +66,7 @@ plot_relativo <-
   labs(x = 'Data', y = 'Distância', color = 'Fazenda') +
   theme(axis.text.x = element_text(angle = 40, hjust = 1))
 
-tabela <-
+tabela_cresc <-
   data |>
   as_tibble() |>
   filter(amco_nr_distancia < 600) |> 
@@ -92,3 +89,32 @@ tabela <-
     style = cell_fill(color = "salmon"),
     locations = cells_body(columns = dist_med_dif, rows = dist_med_dif < 0)
   )
+
+ultimas_coletas <-
+  data |>
+  filter(amco_nr_distancia < 600) |>
+  group_by(fazenda, fk_amst_amostra) |>
+  filter(amco_dt_data_coleta == max(amco_dt_data_coleta)) |>
+  ungroup() |> 
+  as_tibble() |>
+  mutate(date = as.Date(amco_dt_data_coleta)) |>
+  summarise(dist_med = mean(amco_nr_distancia), .by = fazenda) |> 
+  select(fazenda, dist_med) |>
+  arrange(dist_med)
+
+tabela_distancia <-
+  ultimas_coletas |>
+  gt() |>
+  make_beautiful_gt() |> 
+  cols_label(
+    fazenda = 'Fazenda',
+    dist_med = 'Distância Média por Fazenda'
+  ) |> 
+  data_color(
+    dist_med,
+    palette = 'RdYlGn',
+    method = 'bin',
+    bins = c(0, 25, 50, 75, 100, 125, 150, 600)
+  )
+
+dist_med_total <- mean(ultimas_coletas$dist_med)

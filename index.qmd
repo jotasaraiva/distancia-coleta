@@ -29,7 +29,7 @@ source(here::here('R/utils.R'))
 
 O presente relatório pretende analisar a distância das coletas dos sensores IoTs no projeto do cliente Veracel Celulose, de forma a aferir se a transmissão dos dados está ganhando, perdendo ou mantendo a distância ao longo do tempo. Os gráficos a seguir demonstram os dados e as tendências das distâncias de coleta para cada fazenda do projeto ao longo do tempo. 
 
-O gráfico absoluta apresenta as escalas individuais para cada fazenda, evidenciando que poucas fazendas tiveram um ganho substancial de distância, enquanto a maior teve um leve decrescimento. O gráfico relativo apresenta os mesmo resultados mas com a mesma escala para todas as fazendas, mostrando alguns outliers nas fazendas de Folheiro, Buri, Cinco Folhas, Fidalgo e Jitaí. 
+O gráfico absoluto apresenta as escalas individuais para cada fazenda, evidenciando que poucas fazendas tiveram um ganho substancial de distância, enquanto a maioria teve um leve decrescimento. O gráfico relativo apresenta os mesmo resultados mas com a mesma escala para todas as fazendas, mostrando alguns outliers nas fazendas de Folheiro, Buri, Cinco Folhas, Fidalgo e Jitaí. 
 
 ::: {.panel-tabset}
 ## Escala Absoluta
@@ -43,11 +43,17 @@ plot_relativo
 ```
 :::
 
-A tabela a seguir apresenta o crescimento ou decrescimento médio entre todas as amostras de fazenda, calculada com os outliers já retirados. Estes dados confirmam as informações anteriormente mencionadas que as fazendas Folheiro, Buri, Cinco Folhas, Fidalgo e Jitaí obtiveram um incremento expressivo na distância de suas coletas. 
+A tabela a seguir apresenta o crescimento ou decrescimento médio entre todas as amostras de fazenda, observado desde a primeira coleta até a ultima realizada, calculado com os outliers já retirados. Estes dados confirmam as informações anteriormente mencionadas que as fazendas Jitaí, Fidalgo e Folheiro obtiveram um incremento expressivo na distância de suas coletas.
 
 As demais fazendas apresentaram um intervalo de crescimento/decrescimento relativamente baixo, demonstrando constância nas distâncias necessárias para a transmissão dos dados.
 
 ```{r}
-tabela
+tabela_cresc
+```
+
+Por fim, a tabela a seguir demonstra as distâncias médias das últimas coletas para cada fazenda. Com estas informações, a distância média de coleta para o projeto total é de `r dist_med_total` m.
+
+```{r}
+tabela_distancia
 ```
 
